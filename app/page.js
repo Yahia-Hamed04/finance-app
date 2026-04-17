@@ -121,12 +121,13 @@ export default function Home() {
 
 function TableRow({data}) {
  const {avatar, name, date, amount} = data;
+ const { basePath } = useRouter();
 
  return (
   <>
    <div className="transactions__entry">
     <div className="transactions__entry-profile">
-     <Image alt={name} width={40} height={40} src={avatar} className="transactions__entry-image" />
+     <Image alt={name} width={40} height={40} src={basePath + avatar} className="transactions__entry-image" />
      <span className="transactions__entry-name">{name}</span>
     </div>
     <div className="transactions__entry-details">

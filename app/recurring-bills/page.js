@@ -100,11 +100,12 @@ export default function Page() {
 
 function TableRow({data}) {
  const {avatar, name, type, date, amount, paid} = data;
+ const { basePath } = useRouter();
 
  return (
   <tr className="table-row">
    <td className="bills__title">
-    <Image width={40} height={40} alt={name} src={avatar} className="transactions__target-image" />
+    <Image width={40} height={40} alt={name} src={basePath + avatar} className="transactions__target-image" />
     <span className="bills__title-name">{name}</span>
    </td>
    <td className={`bills__date ${dayjs().date() >= date && !paid ? " text-red" : ""}`}>

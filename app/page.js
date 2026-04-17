@@ -9,6 +9,7 @@ import Image from "next/image";
 import dayjs from "dayjs";
 import data from "@/app/data.json";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 export default function Home() {
  const {setPage} = useContext(NavBarContext);

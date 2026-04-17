@@ -4,6 +4,7 @@ const nextConfig = {
   output: 'export',
   basePath: repoName,
   assetPrefix: repoName,
+  images: { unoptimized: true },
   turbopack: {
     rules: {
       '*.svg': {

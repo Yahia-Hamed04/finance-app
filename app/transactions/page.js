@@ -7,7 +7,7 @@ import Pagination from "@/app/_components/Pagination";
 import Table from "@/app/_components/Table";
 import data from "@/app/data.json";
 import dayjs from "dayjs";
-import { useRouter } from "next/router";
+import config from "@/next.config.mjs";
 
 export default function Page() {
  const {setPage} = useContext(NavBarContext);
@@ -83,12 +83,11 @@ export default function Page() {
 
 function TableRow({data}) {
  const {avatar, name, category, date, amount} = data;
- const { basePath } = useRouter();
 
  return (
   <tr className="table-row">
    <td className="transactions__target">
-    <Image width={40} height={40} src={basePath + avatar} alt={name} className="transactions__target-image" />
+    <Image width={40} height={40} src={config.basePath + avatar} alt={name} className="transactions__target-image" />
     <span className="transactions__target-name">{name}</span>
    </td>
    <td className="transactions__category">{category}</td>

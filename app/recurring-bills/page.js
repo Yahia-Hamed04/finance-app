@@ -12,7 +12,7 @@ import data from "@/app/data.json";
 import Table from "@/app/_components/Table";
 import dayjs from "dayjs";
 import AdvancedFormat from "dayjs/plugin/advancedFormat";
-import { useRouter } from "next/router";
+import config from "@/next.config.mjs";
 
 dayjs.extend(AdvancedFormat);
 
@@ -101,12 +101,11 @@ export default function Page() {
 
 function TableRow({data}) {
  const {avatar, name, type, date, amount, paid} = data;
- const { basePath } = useRouter();
 
  return (
   <tr className="table-row">
    <td className="bills__title">
-    <Image width={40} height={40} alt={name} src={basePath + avatar} className="transactions__target-image" />
+    <Image width={40} height={40} alt={name} src={config.basePath + avatar} className="transactions__target-image" />
     <span className="bills__title-name">{name}</span>
    </td>
    <td className={`bills__date ${dayjs().date() >= date && !paid ? " text-red" : ""}`}>

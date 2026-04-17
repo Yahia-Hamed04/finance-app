@@ -9,7 +9,7 @@ import Image from "next/image";
 import dayjs from "dayjs";
 import data from "@/app/data.json";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import config from "@/next.config.mjs";
 
 export default function Home() {
  const {setPage} = useContext(NavBarContext);
@@ -122,13 +122,12 @@ export default function Home() {
 
 function TableRow({data}) {
  const {avatar, name, date, amount} = data;
- const { basePath } = useRouter();
 
  return (
   <>
    <div className="transactions__entry">
     <div className="transactions__entry-profile">
-     <Image alt={name} width={40} height={40} src={basePath + avatar} className="transactions__entry-image" />
+     <Image alt={name} width={40} height={40} src={config.basePath + avatar} className="transactions__entry-image" />
      <span className="transactions__entry-name">{name}</span>
     </div>
     <div className="transactions__entry-details">
